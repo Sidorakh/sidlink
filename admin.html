@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Linker </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB_TnCUulwdAS9nkAfZZi3OxPiQ0A_7lMM",
+            authDomain: "vesuvio-internals.firebaseapp.com",
+            databaseURL: "https://vesuvio-internals.firebaseio.com",
+            projectId: "vesuvio-internals",
+            storageBucket: "vesuvio-internals.appspot.com",
+            messagingSenderId: "542423432699"
+        };
+        firebase.initializeApp(config);
+        </script>
+        <link rel="stylesheet" href="assets/style.css">
+        <script src="assets/script.js"></script>
+    </head>
+
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Linker</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="signout.html">Sign Out</a>
+                </nav>
+            </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="page-content main-page-content">
+                    <h3> Manage Links </h3>
+                    <form action="/create" method="post">
+                        <p>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="linkname" name="link_name">
+                                <label class="mdl-textfield__label" for="linkname">Link Text</label>
+                            </div>
+                        </p>
+                        <p>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="link_url" name="link_url">
+                                <label class="mdl-textfield__label" for="link_url">Link URL</label>
+                            </div>
+                        </p>
+                        <button id="add-link" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="add_link();"> Create Link </button>
+                    </form>
+                    <h1> Current links </h1>
+                    <p id="chips">
+
+                    </p>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
